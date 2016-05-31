@@ -45,7 +45,7 @@ df.printSchema()
 
 df.filter(df.airportName >= 'Moscow').select("_id",'airportName').show()
 df.filter(df._id >= 'CAA').select("_id",'airportName').show()
-df.filter(df._id >= 'CAA').select("_id",'airportName').save("airportcodemapping_df",
+df.filter(df._id >= 'CAA').select("_id",'airportName').write.save("airportcodemapping_df",
         "com.cloudant.spark", bulkSize = "100")
 
 df = sqlContext.load(source="com.cloudant.spark", database="n_flight")
